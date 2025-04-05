@@ -2,11 +2,13 @@
 
 namespace PublicPlan\Model;
 
+use PublicPlan\Trait\HasAuthor;
 use PublicPlan\Trait\Likeable;
 
 class Video
 {
     use Likeable;
+    use HasAuthor;
 
     private string $content;
 

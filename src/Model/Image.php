@@ -2,11 +2,13 @@
 
 namespace PublicPlan\Model;
 
+use PublicPlan\Trait\HasAuthor;
 use PublicPlan\Trait\Likeable;
 
 class Image
 {
     use Likeable;
+    use HasAuthor;
 
     public function __construct(
         private readonly string $title,
