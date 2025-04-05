@@ -7,6 +7,11 @@ class Student extends User
     private int $level;
     private string $class;
 
+    /**
+     * @var array<Course>
+     */
+    private array $courses = [];
+
     public function __construct(string $name, string $birthday, string $level)
     {
         parent::__construct($name, $birthday);
@@ -34,5 +39,17 @@ class Student extends User
     {
         $this->class = $class;
         return $this;
+    }
+
+    public function getCourses(): array
+    {
+        return $this->courses;
+    }
+
+    public function addCourse(Course $course): array
+    {
+        $this->courses[] = $course;
+
+        return $this->courses;
     }
 }

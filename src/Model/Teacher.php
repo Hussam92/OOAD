@@ -6,7 +6,11 @@ use PublicPlan\Enum\Contract;
 
 class Teacher extends User
 {
+    /**
+     * @var array<Course>
+     */
     private array $courses;
+
     private array $working_days;
     private Contract $contract;
 
@@ -22,10 +26,11 @@ class Teacher extends User
         return $this->courses;
     }
 
-    public function setCourses(array $courses): Teacher
+    public function addCourse(Course $course): array
     {
-        $this->courses = $courses;
-        return $this;
+        $this->courses[] = $course;
+
+        return $this->courses;
     }
 
     public function getWorkingDays(): array
