@@ -15,6 +15,17 @@ class User
 
     private Gender $gender;
     private DateTime $birthday;
+    private Passport $passport;
+
+    /**
+     * @var array<Image>
+     */
+    private array $images = [];
+
+    /**
+     * @var array<Video>
+     */
+    private array $videos = [];
 
     public function __construct(string $name, string $birthday)
     {
@@ -96,6 +107,45 @@ class User
     public function setGender(Gender $gender): User
     {
         $this->gender = $gender;
+        return $this;
+    }
+
+    public function getImages(): array
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): array
+    {
+        $image->setAuthor($this);
+
+        $this->images[] = $image;
+
+        return $this->images;
+    }
+
+    public function getVideos(): array
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): array
+    {
+        $video->setAuthor($this);
+
+        $this->videos[] = $video;
+
+        return $this->videos;
+    }
+
+    public function getPassport(): Passport
+    {
+        return $this->passport;
+    }
+
+    public function setPassport(Passport $passport): User
+    {
+        $this->passport = $passport;
         return $this;
     }
 }
