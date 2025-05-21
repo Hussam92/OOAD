@@ -1,0 +1,32 @@
+```mermaid
+---
+title: Class Diagramm User Student Teacher
+---
+classDiagram
+class User{
+-string name
+-DateTime birthday
+-bool hasDriverLicense
+-array languages
+}
+class Student{
+-int level
+-string class
+-canEat()
+}
+class Teacher{
+-Contract contract
+-array workingDays
+}
+class Contract{
+<<Enum>>
+FULLTIME
+PARTIALTIME
+SUBSTITUTION
+INTERN
+}
+
+User <|-- Student
+User <|-- Teacher
+Teacher --> Contract
+```
